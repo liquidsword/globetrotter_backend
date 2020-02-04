@@ -8,9 +8,12 @@
 
 # User.create(name: "Auden", username: "Liquidsword", password_digest: "torch")
 
-anaheim = Location.create(city: "Anaheim", state: "California", country: "USA")
-
-disney = anaheim.attraction.create(name: "Disneyland", description: "Great Rides!")
-
+# anaheim = Location.create(city: "Anaheim", state: "California", country: "USA")
+#
+# disney = anaheim.attraction.create(name: "Disneyland", description: "Great Rides!")
+disney = Attraction.first
 auden = User.first
-auden.trips.create()
+# auden_disney = auden.trips.create(start_date: "2019-06-30", end_date: "2019-07-04")
+#
+# auden_disney.visits.create(attaction: disney, date:"2019-06-30")
+auden.comments.create(content: "OMG it's Mickey!!!", attaction: disney)
