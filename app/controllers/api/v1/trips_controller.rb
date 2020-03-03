@@ -1,9 +1,11 @@
 class Api::V1::TripsController < ApplicationController
+  before_action :set_trip, only: [:show, :update, :destroy]
+
   def index
     if logged_in?
       @trips = current_user.trips
 
-      render json: @trips
+      render json: TripSerializer.new(@trips)
     else
       render json: {
         error: "You aren't logged in!!!"
